@@ -2,25 +2,22 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Role extends Model
+class Category extends Model
 {
-    use SoftDeletes, HasFactory;
-
+    use SoftDeletes;
     protected $fillable = [
-        'role_name',
+        'name',
         'description',
-        'created_at',
+        'ceated_at',
         'updated_at'
     ];
-
     protected $dates = ['deleted_at'];
 
-    public function users()
+    public function items()
     {
-        return $this->hasMany(User::class, 'role_id');
+        return $this->hasMany(Item::class, 'category_id');
     }
 }
