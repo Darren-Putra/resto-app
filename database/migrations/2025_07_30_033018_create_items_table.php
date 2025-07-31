@@ -11,15 +11,18 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('items', function (Blueprint $table) {
-            $table->id();
-            $table->string('name')->unique();
-            $table->text('description');
-            $table->decimal('price', 10, 2);
-            $table->unsignedBigInteger('category_id');
-            $table->string('img')->nullable();
-            $table->boolean('is_active')->default(true);
-            $table->timestamps();
+        Schema::create('items', function (Blueprint $buatKolom) {
+            $buatKolom->id();
+            $buatKolom->unsignedBigInteger('category_id'); // Foreign key to categories table
+
+            $buatKolom->string('name')->unique();
+            $buatKolom->text('description');
+            $buatKolom->decimal('price', 10, 2);
+            $buatKolom->string('image')->nullable();
+            $buatKolom->boolean('is_active')->default(true);
+            $buatKolom->timestamps();
+
+            $buatKolom->foreign('category_id')->references('id')->on('categories'); 
         });
     }
 

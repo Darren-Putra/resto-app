@@ -11,9 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('categories', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+        Schema::create('categories', function (Blueprint $buatKolom) {
+            $buatKolom->id();
+    
+            $buatKolom->string('cat_name')->unique();
+            $buatKolom->text('description');
+            $buatKolom->softDeletes();
+            $buatKolom->timestamps();
         });
     }
 

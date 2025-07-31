@@ -11,21 +11,22 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('orders', function (Blueprint $table) {
-            $table->id();
-            $table->string('order_code')->unique();
-            $table->unsignedBigInteger('user_id');
-            $table->decimal('subtotal', 10, 2);
-            $table->decimal('tax', 10, 2);
-            $table->decimal('grand_total', 10, 2);
-            $table->enum('status', ['pending', 'settlement', 'cooked']);
-            $table->integer('table_number');
-            $table->enum('payment_method', ['tunai', 'qris']);
-            $table->text('note')->nullable();
-            $table->softDeletes();
-            $table->timestamps();
+        Schema::create('orders', function (Blueprint $buatKolom) {
+            $buatKolom->id();
+            $buatKolom->unsignedBigInteger('user_id'); // Foreign key to users table
 
-            $table->foreign('user_id')->references('id')->on('users');
+            $buatKolom->string('order_code')->unique();
+            $buatKolom->decimal('subtotal', 10, 2);
+            $buatKolom->decimal('tax', 10, 2);
+            $buatKolom->decimal('grand_total ', 10, 2);
+            $buatKolom->enum('status', ['pending', 'settlement', 'cooked']);
+            $buatKolom->integer('table_number');
+            $buatKolom->enum('payment_method', ['tunai', 'qris']);
+            $buatKolom->text('note')->nullable();
+            $buatKolom->softDeletes();
+            $buatKolom->timestamps();
+
+            $buatKolom->foreign('user_id')->references('id')->on('users');
         });
     }
 

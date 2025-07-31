@@ -11,9 +11,20 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('order_items', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+        Schema::create('order_items', function (Blueprint $buatKolom) {
+            $buatKolom->id();
+            $buatKolom->unsignedBigInteger('order_id'); // Foreign key to orders table
+            $buatKolom->unsignedBigInteger('item_id'); // Foreign key to items table
+
+            $buatKolom->integer('quantity');
+            $buatKolom->decimal('price', 10, 2);
+            $buatKolom->decimal('tax', 10, 2);
+            $buatKolom->decimal('total_price', 10, 2);
+            $buatKolom->softDeletes();
+            $buatKolom->timestamps();
+
+            $buatKolom->foreign('order_id')->references('id')->on('orders');
+            $buatKolom->foreign('item_id')->references('id')->on('items');
         });
     }
 
