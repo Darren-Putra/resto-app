@@ -18,7 +18,7 @@ return new class extends Migration
             $buatKolom->string('name')->unique();
             $buatKolom->text('description');
             $buatKolom->decimal('price', 10, 2);
-            $buatKolom->string('image')->nullable();
+            $buatKolom->string('img')->nullable();
             $buatKolom->boolean('is_active')->default(true);
             $buatKolom->timestamps();
 

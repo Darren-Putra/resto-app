@@ -16,12 +16,14 @@ class Roleseeder extends Seeder
         // Define the roles to be seeded
         $roles = [
             ['role_name' => 'Admin', 'description' => 'admin'],
-            ['role_name' => 'Casjier', 'description' => 'kasir'],
+            ['role_name' => 'Cashier', 'description' => 'kasir'],
             ['role_name' => 'Chef', 'description' => 'koki'],
             ['role_name' => 'Customer', 'description' => 'pelanggan'],
-                
+
         ];
-        DB::table('roles')->insert($roles);
+  
+            DB::table('roles')->Insert($roles);
+               
+        }
     }
 
-}

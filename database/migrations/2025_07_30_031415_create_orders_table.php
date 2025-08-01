@@ -18,7 +18,7 @@ return new class extends Migration
             $buatKolom->string('order_code')->unique();
             $buatKolom->decimal('subtotal', 10, 2);
             $buatKolom->decimal('tax', 10, 2);
-            $buatKolom->decimal('grand_total ', 10, 2);
+            $buatKolom->decimal('grand_total', 10, 2);
             $buatKolom->enum('status', ['pending', 'settlement', 'cooked']);
             $buatKolom->integer('table_number');
             $buatKolom->enum('payment_method', ['tunai', 'qris']);
